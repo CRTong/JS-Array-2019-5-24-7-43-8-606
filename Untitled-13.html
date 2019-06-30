@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style type="text/css"></style>
+</head>
+<body>
+    <script type="text/javascript">
+            var a = '[a, b, c, d]';
+            var b = [1, 2, 3, 4];
+            document.write("a是数组： " + Array.isArray(a) + "<br >");
+            document.write("b是数组： " + Array.isArray(b) + "<br >");
+
+            var aa = [1, 2, 3, 4, 5];
+            function doubleValue(aa){
+                var i;
+                var len = aa.length;
+                for(i = 0;i < len;i++){
+                    aa[i] = aa[i] * 2;
+                }
+                return aa;
+            }
+            document.write("[" + doubleValue(aa) + "]" + "<br >");
+
+            var colors = ["Red", "Green", "White", "Black"];
+            var stringColor = colors.toString();
+            document.write(stringColor.replace(/,/g, " ") + "<br >");
+            document.write(stringColor.replace(/,/g, "+") + "<br >");
+            document.write(stringColor + "<br >");
+
+            var arr = [5, 1, 8, 10, 4];
+            var max;
+            for(var i=0; i<arr.length; i++){
+                for(var j=i; j<arr.length; j++){
+                    if(arr[i]<arr[j]){
+　　　　　　　　　　　　　max=arr[j];
+                        arr[j]=arr[i];
+                        arr[i]=max;
+                    }
+                }
+            }
+            document.write( "[" + arr.toString() + "]" + "<br >");
+            
+
+            var NumArr = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+            function findMost(NumArr){
+                var maxExist;
+                var maxNum = 1;
+                var obj = NumArr.reduce(function (p,k) {
+                    p[k] ? p[k]++ : p[k] = 1;
+
+                    if(p[k] > maxNum){
+                        maxExist = k;
+                        maxNum++;
+                    }
+                    return p;
+                },{})
+                return maxExist;
+            }
+
+            document.write(findMost(NumArr));
+    </script>
+        
+</body>
+</html>
